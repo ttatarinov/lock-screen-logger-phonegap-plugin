@@ -6,7 +6,7 @@ var LockScreenLoggerCDVPlugin = {
                     } else {
                         resultCallback(arg);
                     }
-        }, errorCallback, "LockScreenLoggerCDVPlugin", "getLocks", []);
+        }, errorCallback, "LockScreenLoggerCDVPlugin", "init", []);
         },
     getLocks: function (resultCallback, cancelCallback, errorCallback) {
         cordova.exec(function (arg) {
