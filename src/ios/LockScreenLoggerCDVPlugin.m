@@ -7,6 +7,7 @@
 //
 
 #import "LockScreenLoggerCDVPlugin.h"
+#import <notify.h>
 
 @implementation LockScreenLoggerCDVPlugin
 
