@@ -35,6 +35,7 @@ UIBackgroundTaskIdentifier bgTask;
     [switchesArr addObject:timestamp];
     // TODO: move to constant
     [switchesArr writeToFile:pathToFile atomically:YES];
+    
 }
 
 - (void)logSwitchOffEvent {
@@ -59,6 +60,8 @@ UIBackgroundTaskIdentifier bgTask;
 
 
 - (void) init:(CDVInvokedUrlCommand*)command {
+    // send to web view
+    
     UIApplication*    app = [UIApplication sharedApplication];
     dispatch_block_t expirationHandler;
     expirationHandler = ^{
@@ -81,7 +84,12 @@ UIBackgroundTaskIdentifier bgTask;
                                  if (state == 1) {
                                      [self logSwitchOffEvent];
                                  } else {
-                                     [self logSwitchOnEvent];
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                         [self logSwitchOnEvent];
+
+                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.onLock('YES');"];
+                                         [self.webView  stringByEvaluatingJavaScriptFromString:jsStatement];
+                                     });
                                  }
                                  NSLog(@"Cur state is %llu", state);
                              });
@@ -95,6 +103,7 @@ UIBackgroundTaskIdentifier bgTask;
 
 - (void)getLocks:(CDVInvokedUrlCommand *)command
 {
+   
     CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"123"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
