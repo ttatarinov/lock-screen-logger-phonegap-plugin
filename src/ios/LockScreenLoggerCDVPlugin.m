@@ -93,7 +93,7 @@ UIBackgroundTaskIdentifier bgTask;
     });
 }
 
-- (NSString*)getLocks:(CDVInvokedUrlCommand *)command
+- (void)getLocks:(CDVInvokedUrlCommand *)command
 {
     CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"123"];

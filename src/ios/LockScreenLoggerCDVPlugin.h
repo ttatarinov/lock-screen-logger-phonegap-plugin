@@ -13,7 +13,7 @@
     NSString* callbackId;
 }
 - (void) init:(CDVInvokedUrlCommand*)command;
-- (NSString*)getLocks:(CDVInvokedUrlCommand*)command;
+- (void)getLocks:(CDVInvokedUrlCommand*)command;
 
 - (void)logSwitchOnEvent;
 - (void)logSwitchOffEvent;
