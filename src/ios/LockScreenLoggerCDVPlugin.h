@@ -6,9 +6,7 @@
 //
 //
 
-#import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
-#import "ZBarSDK.h"
 
 @interface LockScreenLoggerCDVPlugin : CDVPlugin
 {
