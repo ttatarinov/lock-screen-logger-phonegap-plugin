@@ -19,4 +19,4 @@ cordova.exec(function (arg) {
 
 };
 
-module.exports = ZBarCDVPlugin;
+module.exports = LockScreenLoggerCDVPlugin;
