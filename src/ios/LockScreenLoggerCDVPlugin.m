@@ -59,6 +59,7 @@ UIBackgroundTaskIdentifier bgTask;
 
 
 - (void) init:(CDVInvokedUrlCommand*)command {
+    UIApplication*    app = [UIApplication sharedApplication];
     dispatch_block_t expirationHandler;
     expirationHandler = ^{
         [app endBackgroundTask:bgTask];
@@ -95,7 +96,7 @@ UIBackgroundTaskIdentifier bgTask;
 - (NSString*)getLocks:(CDVInvokedUrlCommand *)command
 {
     CDVPluginResult* pluginResult = nil;
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"123"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
     
     self.callbackId = command.callbackId;
