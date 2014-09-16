@@ -19,8 +19,8 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="ZBarCDVPlugin">
-                <param name="ios-package" value="ZBarCDVPlugin"/>
+            <feature name="LockScreenLoggerCDVPlugin">
+                <param name="ios-package" value="LockScreenLoggerCDVPlugin"/>
             </feature>
         </config-file>
         
