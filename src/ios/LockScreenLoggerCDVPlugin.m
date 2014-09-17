@@ -19,48 +19,6 @@ UIBackgroundTaskIdentifier bgTask;
 @synthesize callbackId;
 @synthesize screenStatus;
 
-- (void)logSwitchOnEvent {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    
-    // update gost history
-    NSString *pathToFile = [documentsPath stringByAppendingPathComponent:@"switchOnEvents"];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:pathToFile];
-    NSMutableArray *switchesArr = nil;
-    if (fileExists) {
-        switchesArr = [[NSMutableArray alloc] initWithContentsOfFile:pathToFile];
-    } else {
-        switchesArr = [NSMutableArray new];
-    }
-    NSString* timestamp = TimeStamp;
-    [switchesArr addObject:timestamp];
-    // TODO: move to constant
-    [switchesArr writeToFile:pathToFile atomically:YES];
-    
-}
-
-- (void)logSwitchOffEvent {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    
-    // update gost history
-    NSString *pathToFile = [documentsPath stringByAppendingPathComponent:@"switchOffEvents"];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:pathToFile];
-    NSMutableArray *switchesArr = nil;
-    if (fileExists) {
-        switchesArr = [[NSMutableArray alloc] initWithContentsOfFile:pathToFile];
-    } else {
-        switchesArr = [NSMutableArray new];
-    }
-    NSString* timestamp = TimeStamp;
-    [switchesArr addObject:timestamp];
-    // TODO: move to constant
-    [switchesArr writeToFile:pathToFile atomically:YES];
-}
-
-
 - (void) init:(CDVInvokedUrlCommand*)command {
     // send to web view
     

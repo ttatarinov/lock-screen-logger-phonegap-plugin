@@ -16,9 +16,6 @@
 - (void) init:(CDVInvokedUrlCommand*)command;
 - (void)getScreenStatus:(CDVInvokedUrlCommand*)command;
 
-- (void)logSwitchOnEvent;
-- (void)logSwitchOffEvent;
-
 @property(retain, nonatomic) NSString* callbackId;
 @property(readwrite, atomic) NSInteger screenStatus;
 

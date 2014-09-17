@@ -1,4 +1,4 @@
-  var LockScreenLoggerCDVPlugin = {
+var LockScreenLoggerCDVPlugin = {
                m_screenOn: function () {
                },
                m_screenOff: function () {
