@@ -5,15 +5,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.citronium.lockscreenloggerplugin"
     version="0.1">
-    <name>LockScreenLoggerCDVPlugin</name>
+    <name>Screen</name>
     <description>LockScreenLoggerCDVPlugin</description>
     <license>MIT</license>
     <keywords>lock screen,logger,citronium</keywords>
     <repo></repo>
     <issue></issue>
     
-    <js-module src="www/LockScreenLoggerCDVPlugin.js" name="LockScreenLoggerCDVPlugin">
-        <clobbers target="LockScreenLoggerCDVPlugin" />
+    <js-module src="www/LockScreenLoggerCDVPlugin.js" name="Screen">
+        <clobbers target="Screen" />
     </js-module>
     
     <!-- ios -->
