@@ -17,6 +17,7 @@ int notifyToken;
 UIBackgroundTaskIdentifier bgTask;
 
 @synthesize callbackId;
+@synthesize screenStatus;
 
 - (void)logSwitchOnEvent {
     NSArray *paths = NSSearchPathForDirectoriesInDomains
@@ -83,16 +84,18 @@ UIBackgroundTaskIdentifier bgTask;
                                  uint64_t state;
                                  notify_get_state(notifyToken, &state);
                                  if (state == 1) {
-                                     [self logSwitchOffEvent];
+                                     dispatch_sync(dispatch_get_main_queue(), ^{
+                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.screenoff(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
+                                         [self.webView  stringByEvaluatingJavaScriptFromString:jsStatement];
+                                     });
                                  } else {
                                      dispatch_sync(dispatch_get_main_queue(), ^{
-                                         [self logSwitchOnEvent];
-
-                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.onLock('YES');"];
+                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.screenon(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
                                          [self.webView  stringByEvaluatingJavaScriptFromString:jsStatement];
                                      });
                                  }
                                  NSLog(@"Cur state is %llu", state);
+                                 self.screenStatus = state;
                              });
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -102,14 +105,16 @@ UIBackgroundTaskIdentifier bgTask;
     });
 }
 
-- (void)getLocks:(CDVInvokedUrlCommand *)command
+- (void)getScreenStatus:(CDVInvokedUrlCommand *)command
 {
-   
-    CDVPluginResult* pluginResult = nil;
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"123"];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
     
     self.callbackId = command.callbackId;
+    
+    CDVPluginResult* pluginResult = nil;
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%d", self.screenStatus]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
+    
+    
 }
 
 @end
