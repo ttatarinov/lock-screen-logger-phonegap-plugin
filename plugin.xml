@@ -19,7 +19,7 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="LockScreenLoggerCDVPlugin">
+            <feature name="Screen">
                 <param name="ios-package" value="LockScreenLoggerCDVPlugin"/>
             </feature>
         </config-file>
