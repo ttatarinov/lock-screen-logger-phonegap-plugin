@@ -1,4 +1,4 @@
-var LockScreenLoggerCDVPlugin = {
+var Screen = {
                m_screenOn: function () {
                },
                m_screenOff: function () {
@@ -31,4 +31,4 @@ var LockScreenLoggerCDVPlugin = {
                };
                
                
-               module.exports = LockScreenLoggerCDVPlugin;
+               module.exports = Screen;
