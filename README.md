@@ -10,8 +10,9 @@ Supported paltforms
 
 Instructions
 ------
-1. Enable the background mode "Voice over IP" in the "Capabilities" section of the XCode project.
-2. Call the Screen.start(screenOnCallback, screenOffCallback) function to start handling screen locking events. screenOnCallback and screenOffCallback are the methods to handling locking events.
+1. Add plugin to your project: cordova plugin add https://github.com/ttatarinov/lock-screen-logger-phonegap-plugin.git
+2. Enable the background mode "Voice over IP" in the "Capabilities" section of the XCode project.
+3. Call the Screen.start(screenOnCallback, screenOffCallback) function to start handling screen locking events. screenOnCallback and screenOffCallback are the methods to handling locking events.
 
 License
 ------
