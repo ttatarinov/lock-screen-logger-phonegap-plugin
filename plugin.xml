@@ -12,7 +12,7 @@
     <repo></repo>
     <issue></issue>
     
-    <js-module src="www/LockScreenLoggerCDVPlugin.js" name="Screen">
+    <js-module src="www/Screen.js" name="Screen">
         <clobbers target="Screen" />
     </js-module>
     
