@@ -1,15 +1,15 @@
 //
-//  ZBarCDVPlugin.m
-//  Planstery
+//  Screen.m
+//  Citronium
 //
-//  Created by Timofey Tatarinov on 07.01.14.
+//  Created by Timofey Tatarinov on 16.09.14.
 //
 //
 
-#import "LockScreenLoggerCDVPlugin.h"
+#import "Screen.h"
 #import <notify.h>
 
-@implementation LockScreenLoggerCDVPlugin
+@implementation Screen
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
 
@@ -43,12 +43,12 @@ UIBackgroundTaskIdentifier bgTask;
                                  notify_get_state(notifyToken, &state);
                                  if (state == 1) {
                                      dispatch_sync(dispatch_get_main_queue(), ^{
-                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.screenoff(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
+                                         NSString *jsStatement = [NSString stringWithFormat:@"Screen.screenoff(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
                                          [self.webView  stringByEvaluatingJavaScriptFromString:jsStatement];
                                      });
                                  } else {
                                      dispatch_sync(dispatch_get_main_queue(), ^{
-                                         NSString *jsStatement = [NSString stringWithFormat:@"LockScreenLoggerCDVPlugin.screenon(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
+                                         NSString *jsStatement = [NSString stringWithFormat:@"Screen.screenon(%.0f);", [[NSDate date] timeIntervalSince1970] * 1000];
                                          [self.webView  stringByEvaluatingJavaScriptFromString:jsStatement];
                                      });
                                  }

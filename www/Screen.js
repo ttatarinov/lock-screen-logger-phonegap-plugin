@@ -12,13 +12,13 @@ var Screen = {
                                   });
                
                cordova.exec(function (arg) {
-                            }, errorCallback, "LockScreenLoggerCDVPlugin", "init", []);
+                            }, errorCallback, "Screen", "init", []);
                },
                
                status: function (resultCallback, cancelCallback, errorCallback) {
                cordova.exec(function (arg) {
                             resultCallback(arg);
-                            }, errorCallback, "LockScreenLoggerCDVPlugin", "getScreenStatus", []);
+                            }, errorCallback, "Screen", "getScreenStatus", []);
                },
                
                screenon: function (data) {

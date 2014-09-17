@@ -1,14 +1,14 @@
 //
-//  ZBarCDVPlugin.h
-//  Planstery
+//  Screen.h
+//  Citronium
 //
-//  Created by Timofey Tatarinov on 07.01.14.
+//  Created by Timofey Tatarinov on 16.09.14.
 //
 //
 
 #import <Cordova/CDVPlugin.h>
 
-@interface LockScreenLoggerCDVPlugin : CDVPlugin
+@interface Screen : CDVPlugin
 {
     NSString* callbackId;
     NSInteger screenStatus;

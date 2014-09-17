@@ -20,12 +20,12 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="Screen">
-                <param name="ios-package" value="LockScreenLoggerCDVPlugin"/>
+                <param name="ios-package" value="Screen"/>
             </feature>
         </config-file>
         
-        <header-file src="src/ios/LockScreenLoggerCDVPlugin.h" />
-        <source-file src="src/ios/LockScreenLoggerCDVPlugin.m" />
+        <header-file src="src/ios/Screen.h" />
+        <source-file src="src/ios/Screen.m" />
     </platform>
     
 </plugin>
